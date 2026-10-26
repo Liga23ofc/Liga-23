@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>LIGA 23 | Pro Clubs</title>
+<meta name="description" content="Site oficial da Liga 23 e Copa Liga 23 — EA SPORTS FC Pro Clubs.">
+<style>
+:root{--bg:#0b0b0d;--panel:#151518;--panel2:#1d1d21;--gold:#f2c14e;--gold2:#ffe39a;--text:#f7f5ef;--muted:#aaa8a1;--line:#333238;--red:#e05252;--green:#52b788}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(11,11,13,.94);backdrop-filter:blur(14px);border-bottom:1px solid #26252a}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}.brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:1.8px}.crest{width:43px;height:49px;display:grid;place-items:center;background:linear-gradient(145deg,#ffe39a,#bd8420);color:#111;clip-path:polygon(8% 0,92% 0,100% 12%,92% 75%,50% 100%,8% 75%,0 12%);font-size:17px;font-weight:1000}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2.1px;font-weight:700}.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;font-weight:800;text-transform:uppercase;color:#d0ced0}.navlinks a:hover{color:var(--gold)}.menu{display:none;background:transparent;color:white;border:1px solid var(--line);padding:8px 11px;border-radius:8px}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid #302a1d;background:radial-gradient(ellipse at 80% 20%,rgba(242,193,78,.19),transparent 38%),linear-gradient(115deg,#121214,#09090a 65%);padding:78px 0 70px}
+.hero:after{content:"23";position:absolute;right:3%;top:-65px;font-size:clamp(230px,36vw,490px);font-weight:1000;line-height:1;color:rgba(242,193,78,.055);pointer-events:none}
+.eyebrow{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,84px);line-height:.98;letter-spacing:-3px;margin:18px 0;max-width:750px;font-weight:1000}.hero h1 span{color:var(--gold)}.hero p{max-width:590px;color:#c6c2ba;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:7px;background:var(--gold);color:#121212;font-weight:900;font-size:13px;border:1px solid var(--gold);cursor:pointer}.btn.secondary{background:transparent;color:var(--text);border-color:#4b4840}.btn:hover{transform:translateY(-1px)}.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-size:12px}.hero-meta strong{color:white;display:block;font-size:15px}
+section{padding:62px 0;scroll-margin-top:80px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:24px}.kicker{font-size:11px;color:var(--gold);font-weight:900;letter-spacing:2.5px;text-transform:uppercase}.section-head h2{font-size:clamp(26px,4vw,38px);line-height:1.1;margin:7px 0 0;letter-spacing:-1px}.sub{color:var(--muted);font-size:13px;max-width:520px}.grid{display:grid;gap:16px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:linear-gradient(145deg,#18181b,#111113);border:1px solid var(--line);border-radius:13px;padding:20px;min-width:0}.card h3{margin:0 0 8px;font-size:17px}.card p{color:var(--muted);font-size:13px;margin:0}.tag{display:inline-block;border:1px solid #55451f;color:var(--gold2);border-radius:5px;padding:4px 8px;font-size:10px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}.big-num{font-size:33px;color:var(--gold);font-weight:1000;line-height:1.2;margin:8px 0}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}table{border-collapse:collapse;width:100%;min-width:610px;font-size:13px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #2a292e}th{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);background:#1c1b20}tr:last-child td{border-bottom:0}td:first-child{font-weight:900;color:var(--gold)}.placeholder-note{font-size:12px;color:var(--muted);margin-top:12px}
+.fixtures{display:grid;gap:10px}.fixture{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:10px}.team{text-align:right;font-weight:800;font-size:13px}.team:last-child{text-align:left}.score{color:var(--gold);font-weight:1000;white-space:nowrap}.fixture small{display:block;color:var(--muted);font-weight:500;font-size:10px}
+.bracket{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.round h3{font-size:11px;letter-spacing:1.4px;color:var(--gold);text-transform:uppercase;margin:0 0 12px}.match{border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:12px;background:var(--panel)}.match div{padding:10px 12px;font-size:12px;display:flex;justify-content:space-between;gap:8px}.match div+div{border-top:1px solid var(--line)}.match em{font-style:normal;color:var(--muted)}
+.club{display:flex;align-items:center;gap:13px}.club-mark{width:46px;height:46px;border-radius:10px;background:#28251c;border:1px solid #594822;color:var(--gold);display:grid;place-items:center;font-weight:1000}.club .status{color:var(--muted);font-size:11px}.rules{display:grid;gap:10px}.rule{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.rule:last-child{border:0}.rule b{color:var(--gold);min-width:24px}.rule p{margin:0;color:#d0ced0;font-size:13px}.contact{background:linear-gradient(120deg,#211c10,#141416 60%);border:1px solid #5b4821;border-radius:16px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.contact h3{font-size:25px;margin:0 0 8px}.contact p{color:#c6c2ba;margin:0;font-size:13px;max-width:570px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:11px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.gold{color:var(--gold)}.smallprint{font-size:11px;color:var(--muted)}
+@media(max-width:800px){.nav{min-height:68px}.menu{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 4%;background:#101012;border-bottom:1px solid var(--line);flex-direction:column;gap:15px}.navlinks.open{display:flex}.grid.three{grid-template-columns:1fr}.grid.two{grid-template-columns:1fr}.bracket{grid-template-columns:1fr}.hero{padding:58px 0}.hero h1{letter-spacing:-1.5px}.section-head{align-items:start;flex-direction:column}.contact{align-items:start;flex-direction:column}.hero-meta{gap:16px}}
+
+.auth-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.auth-tabs button{background:#202024;border:1px solid var(--line);color:var(--text);padding:10px 14px;border-radius:8px;font-weight:800;cursor:pointer}.auth-tabs button.active{background:var(--gold);border-color:var(--gold);color:#111}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#d8d5ce;font-weight:800}.field input,.field textarea,.field select{width:100%;background:#0c0c0e;border:1px solid #414047;border-radius:7px;padding:12px;color:var(--text);font:inherit;font-size:13px}.field input[type=file]{padding:9px}.field textarea{min-height:75px;resize:vertical}.players-list{display:grid;gap:9px;margin:12px 0}.player-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}.player-row input{min-width:0;background:#0c0c0e;border:1px solid #414047;border-radius:7px;padding:10px;color:white}.status-box{border:1px solid #55451f;background:#201b10;border-radius:9px;padding:13px;font-size:13px;color:#f3dfaa;margin:12px 0}.hidden{display:none!important}.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}.admin-list{display:grid;gap:10px}.admin-item{border:1px solid var(--line);border-radius:9px;padding:13px;background:#101012}.logo-preview{width:72px;height:72px;object-fit:contain;background:#fff;border-radius:9px;padding:4px}.auth-note{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.player-row{grid-template-columns:1fr}.logo-preview{width:60px;height:60px}}
+
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#inicio"><span class="crest">23</span><span>LIGA 23<small>PRO CLUBS • EA SPORTS FC</small></span></a>
+  <button class="menu" id="menuBtn" aria-label="Abrir menu">☰ MENU</button>
+  <nav class="navlinks" id="navlinks">
+   <a href="#classificacao">Classificação</a><a href="#jogos">Jogos</a><a href="#copa">Copa 23</a><a href="#clubes">Clubes</a><a href="#regulamento">Regulamento</a><a href="#inscricao">Inscrições</a><a href="#area-clubes">Área dos clubes</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+ <div class="wrap">
+  <div class="eyebrow">Temporada de estreia • 2026/27</div>
+  <h1>MAIS QUE UM JOGO.<br><span>É A NOSSA LIGA.</span></h1>
+  <p>Competição, respeito e evolução. Bem-vindo à casa oficial da Liga 23 e da Copa Liga 23, torneios de Pro Clubs do EA SPORTS FC.</p>
+  <div class="actions"><a class="btn" href="#classificacao">VER CLASSIFICAÇÃO ↗</a><a class="btn secondary" href="#inscricao">QUERO PARTICIPAR</a></div>
+  <div class="hero-meta"><div><strong>08 CLUBES</strong>Formato previsto</div><div><strong>14 RODADAS</strong>Pontos corridos</div><div><strong>LIGA + COPA</strong>Duas competições</div></div>
+ </div>
+</section>
+<section id="classificacao"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">A corrida pelo título</div><h2>Classificação oficial</h2></div><p class="sub">A tabela será atualizada após a validação dos resultados pela organização.</p></div>
+ <div class="table-wrap"><table><thead><tr><th>#</th><th>Clube</th><th>J</th><th>V</th><th>E</th><th>D</th><th>SG</th><th>PTS</th></tr></thead><tbody id="standings">
+ <tr><td>—</td><td colspan="7">Clubes e resultados ainda não cadastrados.</td></tr>
+ </tbody></table></div>
+ <p class="placeholder-note">* Posições e pontuações são demonstrativas até o início oficial da competição.</p>
+</div></section>
+<section id="jogos" style="background:#101012"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">Próximos confrontos</div><h2>Calendário e resultados</h2></div><p class="sub">Confira os jogos programados e os placares confirmados.</p></div>
+ <div class="fixtures" id="fixtures"><div class="fixture"><div class="team">Clube A<small>A definir</small></div><div class="score">VS</div><div class="team">Clube B<small>A definir</small></div></div><div class="fixture"><div class="team">Clube C<small>A definir</small></div><div class="score">VS</div><div class="team">Clube D<small>A definir</small></div></div></div>
+ <p class="placeholder-note">Calendário ilustrativo. Datas e confrontos oficiais serão publicados pela organização.</p>
+</div></section>
+<section id="copa"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">Mata-mata</div><h2>Copa Liga 23</h2></div><p class="sub">Oito clubes, três etapas e um campeão. Confrontos sujeitos ao sorteio oficial.</p></div>
+ <div class="bracket">
+  <div class="round"><h3>Quartas de final</h3><div class="match"><div>Confronto 1 <em>—</em></div><div>Confronto 2 <em>—</em></div></div><div class="match"><div>Confronto 3 <em>—</em></div><div>Confronto 4 <em>—</em></div></div><div class="match"><div>Confronto 5 <em>—</em></div><div>Confronto 6 <em>—</em></div></div><div class="match"><div>Confronto 7 <em>—</em></div><div>Confronto 8 <em>—</em></div></div></div>
+  <div class="round"><h3>Semifinais</h3><div class="match"><div>Vencedor QF 1 <em>—</em></div><div>Vencedor QF 2 <em>—</em></div></div><div class="match"><div>Vencedor QF 3 <em>—</em></div><div>Vencedor QF 4 <em>—</em></div></div></div>
+  <div class="round"><h3>Grande final</h3><div class="match"><div>Finalista 1 <em>—</em></div><div>Finalista 2 <em>—</em></div></div><div class="card"><span class="tag">Título em disputa</span><h3>🏆 Campeão da Copa 23</h3><p>O nome do campeão será exibido aqui após a final.</p></div></div>
+ </div>
+</div></section>
+<section id="clubes" style="background:#101012"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">Quem disputa</div><h2>Clubes participantes</h2></div><p class="sub">Vagas previstas: 8 clubes. Os nomes serão adicionados após a confirmação das inscrições.</p></div>
+ <div class="grid three" id="clubs">
+  <div class="card club"><div class="club-mark">01</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">02</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">03</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">04</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">05</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">06</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">07</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+  <div class="card club"><div class="club-mark">08</div><div><h3>Vaga disponível</h3><div class="status">Aguardando confirmação</div></div></div>
+ </div>
+</div></section>
+<section id="regulamento"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">Regras oficiais</div><h2>Regulamento</h2></div><p class="sub">Todos os clubes devem conhecer e respeitar as regras antes de participar.</p></div>
+ <div class="card rules">
+  <div class="rule"><b>01</b><p><strong>Partidas:</strong> 2 jogos por dia, conforme calendário. Os clubes devem combinar horários e jogar até 00h00 do dia marcado.</p></div>
+  <div class="rule"><b>02</b><p><strong>Comprovação:</strong> enviar print do placar e desempenho no grupo oficial ou no privado do administrador.</p></div>
+  <div class="rule"><b>03</b><p><strong>W.O.:</strong> partida fora do prazo ou adversário sem resposta até o dia seguinte pode resultar em W.O. (3x0), mediante comprovação. Três W.O. consecutivos eliminam a equipe.</p></div>
+  <div class="rule"><b>04</b><p><strong>Elenco:</strong> mínimo de 5 jogadores em campo. É proibido substituir jogadores durante a partida.</p></div>
+  <div class="rule"><b>05</b><p><strong>Quite:</strong> 1 quite por equipe, permitido apenas nos primeiros 15 minutos de partida.</p></div>
+  <div class="rule"><b>06</b><p><strong>Conduta:</strong> proibidos bugs no goleiro, exploits, antijogo, racismo e ofensas graves. Denúncias devem conter provas e serão avaliadas pela organização.</p></div>
+  <div class="rule"><b>07</b><p><strong>Decisões:</strong> a organização avaliará situações não previstas e aplicará as penalidades cabíveis.</p></div>
+ </div>
+</div></section>
+
+<section id="area-clubes" style="background:#101012"><div class="wrap">
+ <div class="section-head"><div><div class="kicker">Portal dos participantes</div><h2>Área dos clubes</h2></div><p class="sub">Crie sua conta, cadastre seu clube e envie os dados para análise da organização.</p></div>
+ <div class="grid two">
+  <div class="card">
+   <span class="tag">Acesso do representante</span><h3>Entrar ou criar conta</h3>
+   <div class="auth-tabs"><button type="button" class="active" id="tab-login" onclick="showAuth('login')">Entrar</button><button type="button" id="tab-signup" onclick="showAuth('signup')">Criar conta</button></div>
+   <form id="authForm">
+    <div class="form-grid">
+     <div class="field full" id="auth-name-wrap" hidden><label for="authName">Nome do responsável</label><input id="authName" autocomplete="name" placeholder="Seu nome"></div>
+     <div class="field full"><label for="authEmail">E-mail</label><input id="authEmail" type="email" required autocomplete="email" placeholder="voce@email.com"></div>
+     <div class="field full"><label for="authPassword">Senha</label><input id="authPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="Mínimo de 6 caracteres"></div>
+    </div>
+    <div class="actions"><button class="btn" type="submit" id="authSubmit">ENTRAR</button><button class="btn secondary hidden" type="button" id="logoutBtn" onclick="logoutClub()">SAIR</button></div>
+   </form>
+   <div class="status-box" id="authStatus" role="status">O portal está preparado. Para ativar login e salvar cadastros com segurança, configure o Firebase seguindo o arquivo LEIA-ME.</div>
+  </div>
+  <div class="card">
+   <span class="tag">Inscrição • R$ 5,00</span><h3>Cadastro do clube</h3>
+   <form id="clubForm">
+    <div class="form-grid">
+     <div class="field"><label for="clubName">Nome do clube *</label><input id="clubName" required maxlength="50" placeholder="Ex.: Clube 23 FC"></div>
+     <div class="field"><label for="clubTag">Sigla *</label><input id="clubTag" required maxlength="5" placeholder="C23"></div>
+     <div class="field"><label for="captainName">Responsável / capitão *</label><input id="captainName" required maxlength="60" placeholder="Nome do capitão"></div>
+     <div class="field"><label for="clubContact">Contato (WhatsApp) *</label><input id="clubContact" required maxlength="30" placeholder="DDD + número"></div>
+     <div class="field full"><label for="clubLogo">Escudo do clube (PNG/JPG/WEBP, até 2 MB)</label><input id="clubLogo" type="file" accept="image/png,image/jpeg,image/webp"><div id="logoPreviewWrap" class="hidden"><img id="logoPreview" class="logo-preview" alt="Prévia do escudo"></div></div>
+     <div class="field full"><label>Jogadores do elenco *</label><div id="playersList" class="players-list"></div><button type="button" class="btn secondary" id="addPlayerBtn">+ ADICIONAR JOGADOR</button><p class="smallprint">Informe ao menos 5 jogadores. Você poderá incluir nomes e posições.</p></div>
+     <div class="field full"><label for="paymentProof">Comprovante Pix (imagem ou PDF, até 5 MB) *</label><input id="paymentProof" type="file" accept="image/png,image/jpeg,image/webp,application/pdf" required></div>
+     <div class="field full"><label class="smallprint"><input type="checkbox" id="acceptRules" required style="width:auto"> Confirmo que os dados são verdadeiros e que li o regulamento da Liga 23.</label></div>
+    </div>
+    <div class="status-box">Pix: <strong>(21) 97410-4332</strong> • Valor: <strong>R$ 5,00</strong>. A inscrição só será confirmada após análise da organização.</div>
+    <button class="btn" type="submit" id="clubSubmit">ENVIAR INSCRIÇÃO</button>
+   </form>
+   <p class="auth-note">Atenção: não envie senhas bancárias ou dados financeiros além do comprovante do Pix.</p>
+  </div>
+ </div>
+ <div class="card" id="myClubPanel" style="margin-top:16px" hidden><div class="section-head"><div><div class="kicker">Painel do representante</div><h2>Minhas inscrições</h2></div></div><div id="myClubContent">Entre na sua conta para consultar os dados.</div></div>
+ <div class="card" id="adminPanel" style="margin-top:16px" hidden><div class="section-head"><div><div class="kicker">Organização</div><h2>Administração das inscrições</h2></div></div><p class="sub">Área administrativa disponível somente para e-mails explicitamente autorizados na configuração.</p><div id="adminContent" class="admin-list"></div></div>
+</div></section>
+
+<section id="inscricao" style="background:#101012"><div class="wrap">
+ <div class="contact"><div><div class="kicker">Faça parte da história</div><h3>Seu clube na Liga 23?</h3><p>Inscrição R$ 5,00 por clube. Vagas limitadas a 8 clubes. Fale no WhatsApp ou pague no Pix oficial abaixo e envie o comprovante.</p></div>
+  <div style="display:flex; flex-direction:column; gap:10px;">
+   <a class="btn" style="background:#25D366; border-color:#25D366; color:white;" href="https://wa.me/5521974104332?text=Olá!%20Quero%20inscrever%20meu%20clube%20na%20Liga%2023" target="_blank">WHATSAPP (21) 97410-4332 ↗</a>
+   <a class="btn" href="mailto:liga23oficial@gmail.com?subject=Interesse%20na%20Liga%2023">liga23oficial@gmail.com ↗</a>
+  </div>
+ </div>
+
+ <div class="card" style="margin-top:16px;">
+  <div class="grid two">
+   <div>
+    <div class="kicker">Pix oficial • R$ 5,00</div>
+    <h3 style="margin-top:8px;">Chave: (21) 97410-4332</h3>
+    <p style="margin-top:6px;">Titular: Liga 23 • Valor fixo R$ 5,00 • Após pagar, envie o comprovante no WhatsApp.</p>
+    <div style="background:#0b0b0d; border:1px dashed var(--gold); border-radius:8px; padding:10px; font-size:11px; word-break:break-all; margin-top:10px;" id="pixCode">00020101021226360014br.gov.bcb.pix0114+552197410433252040000530398654045.005802BR5907LIGA 236015DUQUE DE CAXIAS62070503***6304E485</div>
+    <button class="btn" style="width:100%; margin-top:10px;" onclick="navigator.clipboard.writeText(document.getElementById('pixCode').innerText).then(()=>alert('Pix copiado!'))">COPIAR PIX R$ 5,00</button>
+   </div>
+   <div style="text-align:center;">
+    <p style="font-size:12px; color:var(--muted);">QR Code Pix R$ 5,00</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020101021226360014br.gov.bcb.pix0114%2B552197410433252040000530398654045.005802BR5907LIGA%20236015DUQUE%20DE%20CAXIAS62070503***6304E485" alt="QR Code Pix Liga 23 R$5" style="width:200px; height:200px; background:white; padding:6px; border-radius:8px;">
+    <p style="font-size:11px; margin-top:8px; color:var(--gold);">Escaneie com o app do seu banco</p>
+   </div>
+  </div>
+ </div>
+
+ <p class="smallprint" style="margin-top:13px">Contato oficial: liga23oficial@gmail.com • WhatsApp: (21) 97410-4332 • Pix: (21) 97410-4332 • Inscrição: R$ 5,00</p>
+</div></section>
+</main>
+<footer><div class="wrap foot"><div><strong class="gold">LIGA 23</strong> · COPA LIGA 23</div><div>EA SPORTS FC Pro Clubs · Temporada de estreia</div><div>Competitividade. Respeito. Evolução.</div></div></footer>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import { getFirestore, collection, addDoc, query, where, getDocs, doc, updateDoc, serverTimestamp, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
+
+// CONFIGURE estes valores no Firebase Console antes de publicar. Não coloque chaves privadas aqui.
+const firebaseConfig = { apiKey: 'COLOQUE_SUA_API_KEY', authDomain: 'SEU_PROJETO.firebaseapp.com', projectId: 'SEU_PROJETO', storageBucket: 'SEU_PROJETO.appspot.com', messagingSenderId: 'SEU_SENDER_ID', appId: 'SEU_APP_ID' };
+const ADMIN_EMAILS = ['SEU_EMAIL_ADMIN@EXEMPLO.COM']; // troque pelo e-mail administrativo autorizado
+let app=null, auth=null, db=null, storage=null, authMode='login', currentUser=null, firebaseReady=false;
+const $=id=>document.getElementById(id);
+const configured=!Object.values(firebaseConfig).some(v=>String(v).includes('COLOQUE_')||String(v).includes('SEU_PROJETO')||String(v).includes('SEU_SENDER_ID')||String(v).includes('SEU_APP_ID'));
+function setStatus(msg,isError=false){$('authStatus').textContent=msg;$('authStatus').style.borderColor=isError?'#e05252':'#55451f';}
+if(configured){try{app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);storage=getStorage(app);firebaseReady=true;}catch(e){console.error(e);}}
+const menuBtn=$('menuBtn'),nav=$('navlinks');menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+window.showAuth=(mode)=>{authMode=mode;$('tab-login').classList.toggle('active',mode==='login');$('tab-signup').classList.toggle('active',mode==='signup');$('auth-name-wrap').hidden=mode!=='signup';$('authSubmit').textContent=mode==='signup'?'CRIAR CONTA':'ENTRAR';$('authPassword').autocomplete=mode==='signup'?'new-password':'current-password';};
+function addPlayer(name='',position=''){const row=document.createElement('div');row.className='player-row';row.innerHTML='<input aria-label="Nome do jogador" maxlength="60" placeholder="Nome do jogador" required><input aria-label="Posição" maxlength="30" placeholder="Posição (opcional)"><button type="button" class="btn secondary" aria-label="Remover jogador">×</button>';const inputs=row.querySelectorAll('input');inputs[0].value=name;inputs[1].value=position;row.querySelector('button').addEventListener('click',()=>{if($('playersList').children.length>5||!inputs[0].value.trim())row.remove();else alert('Mantenha pelo menos 5 jogadores no formulário.');});$('playersList').appendChild(row);}
+for(let i=0;i<5;i++)addPlayer();$('addPlayerBtn').addEventListener('click',()=>{if($('playersList').children.length>=30)return alert('Limite de 30 jogadores por cadastro.');addPlayer();});
+$('clubLogo').addEventListener('change',()=>{const f=$('clubLogo').files[0];if(!f){$('logoPreviewWrap').classList.add('hidden');return;}if(f.size>2*1024*1024){alert('O escudo deve ter até 2 MB.');$('clubLogo').value='';return;}const url=URL.createObjectURL(f);$('logoPreview').src=url;$('logoPreviewWrap').classList.remove('hidden');});
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();if(!firebaseReady){setStatus('Login ainda não ativado: falta inserir as credenciais do Firebase conforme o LEIA-ME.',true);return;}const email=$('authEmail').value.trim().toLowerCase(),password=$('authPassword').value;try{if(authMode==='signup'){const cred=await createUserWithEmailAndPassword(auth,email,password);const name=$('authName').value.trim();if(name)await updateProfile(cred.user,{displayName:name});setStatus('Conta criada! Agora complete o cadastro do seu clube.');}else{await signInWithEmailAndPassword(auth,email,password);setStatus('Login realizado.');}}catch(err){setStatus(firebaseError(err.code),true);}});
+function firebaseError(code){return ({'auth/email-already-in-use':'Este e-mail já possui conta.','auth/invalid-email':'E-mail inválido.','auth/weak-password':'A senha precisa ter pelo menos 6 caracteres.','auth/invalid-credential':'E-mail ou senha incorretos.','auth/too-many-requests':'Muitas tentativas. Aguarde e tente novamente.'})[code]||'Não foi possível concluir. Confira os dados e tente novamente.';}
+window.logoutClub=async()=>{if(auth)await signOut(auth);};
+$('clubForm').addEventListener('submit',async e=>{e.preventDefault();if(!firebaseReady||!currentUser){setStatus(!firebaseReady?'Cadastro ainda não ativado: configure o Firebase primeiro.':'Entre ou crie uma conta antes de enviar a inscrição.',true);return;}
+const players=[...$('playersList').querySelectorAll('.player-row')].map(r=>{const i=r.querySelectorAll('input');return {name:i[0].value.trim(),position:i[1].value.trim()};}).filter(p=>p.name);if(players.length<5){alert('Cadastre ao menos 5 jogadores.');return;}const logo=$('clubLogo').files[0],proof=$('paymentProof').files[0];if(logo&&logo.size>2*1024*1024){alert('Escudo acima de 2 MB.');return;}if(!proof||proof.size>5*1024*1024){alert('Selecione um comprovante de até 5 MB.');return;}
+$('clubSubmit').disabled=true;try{const stamp=Date.now(),safe=String(currentUser.uid);let logoURL='';if(logo){const r=ref(storage,`club-uploads/${safe}/${stamp}-logo-${logo.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`);await uploadBytes(r,logo);logoURL=await getDownloadURL(r);}const pr=ref(storage,`payment-proofs/${safe}/${stamp}-proof-${proof.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`);await uploadBytes(pr,proof);const proofURL=await getDownloadURL(pr);await addDoc(collection(db,'clubApplications'),{ownerUid:currentUser.uid,ownerEmail:currentUser.email,clubName:$('clubName').value.trim(),clubTag:$('clubTag').value.trim().toUpperCase(),captainName:$('captainName').value.trim(),contact:$('clubContact').value.trim(),logoURL,players,paymentProofURL:proofURL,paymentStatus:'pending',applicationStatus:'pending',createdAt:serverTimestamp()});$('clubForm').reset();$('playersList').innerHTML='';for(let i=0;i<5;i++)addPlayer();$('logoPreviewWrap').classList.add('hidden');setStatus('Inscrição enviada! Ela ficará pendente até a organização conferir o pagamento.');await loadMyApplications();}catch(err){console.error(err);setStatus('Não foi possível enviar. Confira a configuração do Firebase e as regras de acesso.',true);}finally{$('clubSubmit').disabled=false;}});
+function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+onAuthStateChangedSafe();function onAuthStateChangedSafe(){if(!firebaseReady){setStatus('Portal preparado, mas ainda precisa ser conectado ao Firebase para login e salvamento reais. Veja o arquivo LEIA-ME.');return;}onAuthStateChanged(auth,async user=>{currentUser=user;$('logoutBtn').classList.toggle('hidden',!user);$('myClubPanel').hidden=!user;$('clubSubmit').disabled=!user;if(user){setStatus('Conectado como '+user.email+'. Preencha o cadastro do clube.');await loadMyApplications();const isAdmin=ADMIN_EMAILS.map(x=>x.toLowerCase()).includes((user.email||'').toLowerCase());$('adminPanel').hidden=!isAdmin;if(isAdmin)await loadAdminApplications();}else{$('myClubContent').textContent='Entre na sua conta para consultar as inscrições.';$('adminPanel').hidden=true;}});}
+async function loadMyApplications(){if(!currentUser||!db)return;try{const q=query(collection(db,'clubApplications'),where('ownerUid','==',currentUser.uid));const snap=await getDocs(q);$('myClubContent').innerHTML=snap.empty?'<p class="sub">Você ainda não enviou uma inscrição.</p>':snap.docs.map(d=>{const x=d.data();return `<div class="admin-item"><strong>${escapeHTML(x.clubName)}</strong> (${escapeHTML(x.clubTag)})<p class="sub">Pagamento: ${escapeHTML(x.paymentStatus||'pending')} • Inscrição: ${escapeHTML(x.applicationStatus||'pending')}</p><p class="sub">Elenco: ${(x.players||[]).length} jogadores</p></div>`;}).join('');}catch(e){console.error(e);}}
+async function loadAdminApplications(){if(!currentUser||!db)return;try{const snap=await getDocs(query(collection(db,'clubApplications'),orderBy('createdAt','desc')));$('adminContent').innerHTML=snap.empty?'<p class="sub">Nenhuma inscrição recebida.</p>':snap.docs.map(d=>{const x=d.data();return `<div class="admin-item"><strong>${escapeHTML(x.clubName)}</strong> (${escapeHTML(x.clubTag)})<p class="sub">Responsável: ${escapeHTML(x.captainName)} • ${escapeHTML(x.ownerEmail)} • ${escapeHTML(x.contact)}</p><p class="sub">Pagamento: ${escapeHTML(x.paymentStatus)} • Inscrição: ${escapeHTML(x.applicationStatus)}</p><p class="sub">Elenco: ${(x.players||[]).map(p=>escapeHTML(p.name)+(p.position?' — '+escapeHTML(p.position):'')).join(', ')}</p><p><a class="gold" href="${escapeHTML(x.paymentProofURL)}" target="_blank" rel="noopener">Abrir comprovante ↗</a>${x.logoURL?' · <a class="gold" href="'+escapeHTML(x.logoURL)+'" target="_blank" rel="noopener">Ver escudo ↗</a>':''}</p><div class="actions"><button class="btn" data-approve="${d.id}">APROVAR</button><button class="btn secondary" data-reject="${d.id}">RECUSAR</button></div></div>`;}).join('');$('adminContent').querySelectorAll('[data-approve]').forEach(b=>b.addEventListener('click',()=>setApplicationStatus(b.dataset.approve,'approved')));$('adminContent').querySelectorAll('[data-reject]').forEach(b=>b.addEventListener('click',()=>setApplicationStatus(b.dataset.reject,'rejected')));}catch(e){console.error(e);$('adminContent').innerHTML='<p class="sub">Não foi possível carregar. Verifique as regras e o índice do Firestore.</p>';}}
+async function setApplicationStatus(id,status){if(!currentUser||!ADMIN_EMAILS.map(x=>x.toLowerCase()).includes((currentUser.email||'').toLowerCase()))return alert('Acesso não autorizado.');try{await updateDoc(doc(db,'clubApplications',id),{applicationStatus:status,paymentStatus:status==='approved'?'approved': 'rejected',reviewedAt:serverTimestamp(),reviewedBy:currentUser.email});await loadAdminApplications();alert('Status atualizado.');}catch(e){alert('Não foi possível atualizar. Confira as regras do Firestore.');}}
+</script>
+</body>
+</html>
